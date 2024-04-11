@@ -1,4 +1,3 @@
-#define DEBUG
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
 #include "Image.h"
@@ -8,11 +7,9 @@ Image::Image(std::string path, std::string palette) :
 {
 	data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 	if (!data)
-		printf("Failed to load image from path %s", path.c_str());
-
-	#ifdef DEBUG
-		printf("Loaded image %s (%ix%ix%i).", path.c_str(), width, height, channels);
-	#endif
+		printf("Failed to load image from path %s\n", path.c_str());
+	else
+		printf("Loaded image %s (%ix%ix%i).\n", path.c_str(), width, height, channels);
 }
 
 Image::~Image()
