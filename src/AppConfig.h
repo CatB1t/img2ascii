@@ -43,6 +43,7 @@ class AppConfig {
 		void setConfig(const char* filepath, Palette palette);
 		const string& getImageFilepath() const;
 		const string& getPalette() const;
+		bool getAsFile() const;
 
 		static AppConfig* getInstance();
 		static AppConfig* parseArgs(int argc, char* argv[]);

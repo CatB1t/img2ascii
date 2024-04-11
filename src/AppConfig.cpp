@@ -59,8 +59,8 @@ namespace App {
 	}
 
 	const string& AppConfig::getImageFilepath() const { return filepath; }
-
 	const string& AppConfig::getPalette() const { return palette; }
+	bool AppConfig::getAsFile() const { return as_file; }
 
 
 }
