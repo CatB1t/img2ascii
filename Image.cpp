@@ -35,7 +35,7 @@ std::string Image::convert()
 				pixelSum += data[ptr_pos] / 255.0f;
 			}
 			pixelSum /= channels;
-			int pixelIndex = (int)(pixelSum * palette.length() - 1);
+			int pixelIndex = (int)(pixelSum * (palette.length() - 1));
 			ret += palette[pixelIndex];
 		}
 		ret += "\n";
