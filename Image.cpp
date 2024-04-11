@@ -3,15 +3,15 @@
 #include <stb/stb_image.h>
 #include "Image.h"
 
-Image::Image(const char* path) :
-	path(path)
+Image::Image(std::string path, std::string palette) :
+	path(path), palette(palette)
 {
-	data = stbi_load(path, &width, &height, &channels, 0);
+	data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 	if (!data)
-		printf("Failed to load image from path %s", path);
+		printf("Failed to load image from path %s", path.c_str());
 
 	#ifdef DEBUG
-		printf("Loaded image %s (%ix%ix%i).", path, width, height, channels);
+		printf("Loaded image %s (%ix%ix%i).", path.c_str(), width, height, channels);
 	#endif
 }
 
@@ -24,7 +24,6 @@ Image::~Image()
 std::string Image::convert()
 {
 	std::string ret = "";
-	std::string palette = " .:-=+*#%@";
 
 	for (int i = 0; i < height; ++i) {
 		for (int j = 0; j < width; ++j) {
