@@ -28,8 +28,8 @@ class AppConfig {
 
 		map<string, function<void(AppConfig*)>> commands
 		{
-			{"--binary", setAsFile},
-			{"--asfile", setPaletteAsBinary}
+			{"--binary", setPaletteAsBinary},
+			{"--asfile", setAsFile}
 		};
 		AppConfig();
 
